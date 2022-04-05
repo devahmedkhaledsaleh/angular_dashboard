@@ -1,0 +1,43 @@
+
+
+<table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{currentOrder?.data?.userId?.fname}} {{currentOrder?.data?.userId?.lname}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{currentOrder?.data?.userId?.email}}</td>
+      </tr>
+
+      <tr>
+        <td>products</td>
+        <td>
+          <table class="table table-striped">
+            <tr>
+              <td>Name</td>
+              <td>Unit Price</td>
+              <td>product Quantity</td>
+              <td>Total</td>
+            </tr>
+            
+            <tr *ngFor="let product of currentOrder?.data?.products">
+              <td>{{product.productId.name}}</td>
+              <td>{{product.productId.price}}</td>
+              <td>{{product.productQuantity}}</td>
+              <td>{{product.productId.price * product.productQuantity}}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td>Total Price</td>
+        <td>{{  currentOrder?.data?.totalPrice | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

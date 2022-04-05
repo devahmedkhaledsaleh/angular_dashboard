@@ -1,0 +1,48 @@
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="width: 20px">#</th>
+      <th>Name</th>
+      <th>quantity</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productListOfCategory?.data; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>
+        <button
+          (click)="openProductDetails(product._id)"
+          type="button"
+          class="btn btn-success mr-3"
+        >
+          show
+        </button>
+        <button
+          (click)="editProduct(product._id)"
+          type="button"
+          class="btn btn-primary mr-3"
+        >
+          Edit
+        </button>
+        <button
+          (click)="deleteProduct(product._id)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

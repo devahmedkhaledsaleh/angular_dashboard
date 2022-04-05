@@ -1,0 +1,64 @@
+<form [formGroup]="categoryForm">
+  <div class="card-body">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="
+          categoryForm.controls['name'].invalid &&
+          (categoryForm.controls['name'].dirty ||
+            categoryForm.controls['name'].touched)
+            ? 'is-invalid'
+            : ''
+        "
+
+        [ngClass]="
+          categoryForm.controls['name'].valid &&
+          (categoryForm.controls['name'].dirty ||
+            categoryForm.controls['name'].touched)
+            ? 'is-valid'
+            : ''
+        "
+        id="name"
+        placeholder="Enter Category Name"
+        name="name"
+        formControlName="name"
+      />
+
+      <div
+      *ngIf="
+      categoryForm.controls['name'].invalid &&
+      (categoryForm.controls['name'].dirty ||
+      categoryForm.controls['name'].touched)
+      "
+      class="alert alert-danger"
+      >
+        <span
+          *ngIf="categoryForm.controls['name'].errors?.['required']"
+          class="error"
+          
+          >Name Is Required</span
+        >
+        <span
+          *ngIf="categoryForm.controls['name'].errors?.['minlength']"
+          class="error"
+        >
+          Name must be at least 4 characters long.
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- /.card-body -->
+
+  <div class="card-footer">
+    <button
+      [disabled]="!categoryForm.valid"
+      type="submit"
+      class="btn btn-primary"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+<!-- *ngIf="show" -->
+<app-navbar></app-navbar>
+
+<app-sidebar></app-sidebar>
+
+<div class="content-wrapper">
+  <app-content-header></app-content-header>
+
+  <section class="content">
+    <div class="container-fluid">
+      <!-- <app-main-content></app-main-content> -->
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>
